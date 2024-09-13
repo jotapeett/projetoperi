@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo2.css">
+    <title>Quem sou eu?</title>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <button onclick="toggleSidebar()" class="btn_icon_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </button>
+        <div class="navigation_header" id="navigation_header">
+            <button onclick="toggleSidebar()" class="btn_icon_header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </button>
+            <a href="index.html" class="active">Início</a>
+            <a href="pagina01.html" class="active">João Pedro...</a>
+            <a href="https://www.instagram.com/jpnascii/" class="active">Instagram</a>
+        </div>
+    </div>
+
+    <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
+        <h1 id="titulo">Quem sou eu?</h1>
+        <div id="texto" class="animate__animated animate__fadeIn">
+            <p>Sou o João Pedro, conhecido por muitos como JP. Sou o irmão mais novo do relacionamento dos meus pais e
+                nasci no dia 23 de maio de 2008. Desde pequeno, sempre tive uma grande paixão por futebol e me destacava
+                em torneios da minha categoria.
+            </p>
+            <p>
+                Certa vez, fui avaliado pelo Joinville Esporte Clube sem que eu soubesse. Eles ficaram impressionados
+                com meu desempenho e me convidaram para assinar um contrato não profissional de dois anos. Com isso,
+                tive a oportunidade de jogar no Campeonato Catarinense Sub-15. Após essa passagem pelo Joinville Esporte
+                Clube, passei por times como: Nação Esporte Clube, G.E Juventus e Hercílio Luz.
+            </p>
+        </div>
+
+        <div class="historico">
+            <h1 class="Times">Histórico De Passagens por Times</h1>
+            <table border="1" class="table">
+                <tr>
+                    <th>Time</th>
+                    <th>Ano</th>
+                </tr>
+                <tr>
+                    <td>Joinville Esporte Clube</td>
+                    <td>2020</td>
+                </tr>
+                <tr>
+                    <td>Nação Esporte Clube</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>Hercílio Luz</td>
+                    <td>2023</td>
+                </tr>
+                <tr>
+                    <td>G.E Juventus</td>
+                    <td>2023</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="img3">
+        <img src="img/eupequeno.jpg" alt="eupequeno" id="kid" class="animate__animated animate__fadeInRight">
+    </div>
+    <div class="img2">
+        <img src="img/jec.jpg" alt="jec" class="jec">
+    </div>
+
+    <script>
+        var navigation_header = document.getElementById('navigation_header');
+        var content = document.getElementById('content');
+        var showSidebar = false;
+
+        function toggleSidebar() {
+            showSidebar = !showSidebar;
+            if (showSidebar) {
+                navigation_header.style.marginLeft = '0';
+                navigation_header.style.animationName = 'showSidebar';
+                content.style.filter = 'blur(2px)';
+            } else {
+                navigation_header.style.marginLeft = '-100vw';
+                navigation_header.style.animationName = '';
+                content.style.filter = '';
+            }
+        }
+
+        function closeSidebar() {
+            if (showSidebar) {
+                toggleSidebar();
+            }
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768 && showSidebar) {
+                toggleSidebar();
+            }
+        });
+    </script>
+</body>
+
+</html>
